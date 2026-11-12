@@ -5,11 +5,28 @@ Neue Einträge oben anfügen. Format: Datum, Entscheidung, Warum, Alternativen.
 
 ---
 
+## 2026-11-12 · Eigene Webseite statt Unterseite von flxlhr.com
+
+**Entscheidung**
+- Pangmam bekommt eine **eigene Webseite mit eigener Domain** in einem **eigenen IONOS-Account**. Das Spiel liegt nicht mehr unter `flxlhr.com/pangmam/`.
+- Spiel und API liegen direkt im Hauptordner der Domain: `https://<domain>/` und `https://<domain>/api/`.
+- Die Domain steht noch nicht fest.
+
+**Warum**
+- Das Projekt soll unabhängig von Felix' privater Webseite sein.
+
+**Folgen**
+- Für Tarif und Domain fallen kleine monatliche Kosten an.
+- Der Tarif muss **PHP 8.1+**, eine **MySQL-Datenbank** und **SFTP-Zugang** enthalten.
+- Am Code ändert sich nichts. Das Spiel ermittelt die Adresse der API selbst aus der Adresse, unter der es aufgerufen wird.
+
+---
+
 ## 2026-11-12 · Spiel in Godot, Server als PHP-API auf dem Webspace
 
 **Entscheidung**
-- Das Spiel wird mit **Godot 4.7** und **GDScript** gebaut und als **Web-Version** exportiert. Es läuft unter `flxlhr.com/pangmam/` im Browser.
-- Mehrspieler läuft über eine kleine **PHP-API mit MySQL** auf dem vorhandenen IONOS-Webspace.
+- Das Spiel wird mit **Godot 4.7** und **GDScript** gebaut und als **Web-Version** exportiert und läuft im Browser (Ort: siehe Eintrag „Eigene Webseite“ oben).
+- Mehrspieler läuft über eine kleine **PHP-API mit MySQL** auf einem normalen IONOS-Webspace.
 - Die Spiele fragen **jede Sekunde** nach, ob sich etwas geändert hat (Polling). Kein dauerhaft laufender Server, keine WebSockets.
 - **Der Server entscheidet** über alles (Wort, Treffer, Punkte). Das Spiel zeigt nur an. So kann niemand das Wort auslesen.
 
