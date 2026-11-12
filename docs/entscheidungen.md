@@ -4,6 +4,15 @@ Hier landet alles, was das Team entschieden hat – mit Begründung, damit man e
 Neue Einträge oben anfügen. Format: Datum, Entscheidung, Warum, Alternativen.
 
 ---
+## 2026-11-12 · 
+
+**Entscheidung**
+- Zeitlimit bei Abstimmungen zum ganzen Wort: Wir wollen keine abstimmung man kanns einfach reinschreien wann immer auch wenn man nicht an der Reihe ist. Wenns falsch ist ist man eben raus, wenns richtig ist bekommt man zwei punkte.
+- Extrafunktion: Man kann für gemeinschaftliches EEnde ein wort zum ganzen raten vorschlagen und dem können alle zustimmen. Dann gewinnen alle normal.
+- frage 12: nein erstmal für später "soll" werden.
+- Avatare macht Mara, Design generell aber felix bringt seinen senf dazu.
+
+---
 
 ## 2026-11-12 · Eigene Webseite statt Unterseite von flxlhr.com
 
