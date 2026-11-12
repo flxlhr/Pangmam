@@ -4,13 +4,18 @@ Hier landet alles, was das Team entschieden hat – mit Begründung, damit man e
 Neue Einträge oben anfügen. Format: Datum, Entscheidung, Warum, Alternativen.
 
 ---
-## 2026-11-12 · 
+
+## 2026-11-12 · Abnahme des Lastenhefts v0.2 (Issue #7)
 
 **Entscheidung**
-- Zeitlimit bei Abstimmungen zum ganzen Wort: Wir wollen keine abstimmung man kanns einfach reinschreien wann immer auch wenn man nicht an der Reihe ist. Wenns falsch ist ist man eben raus, wenns richtig ist bekommt man zwei punkte.
-- Extrafunktion: Man kann für gemeinschaftliches EEnde ein wort zum ganzen raten vorschlagen und dem können alle zustimmen. Dann gewinnen alle normal.
-- frage 12: nein erstmal für später "soll" werden.
-- Avatare macht Mara, Design generell aber felix bringt seinen senf dazu.
+- **Ganzes Wort raten ohne Abstimmung:** Wer das Wort zu wissen glaubt, gibt es einfach ein, jederzeit, auch wenn er gerade nicht an der Reihe ist. Richtig: 2 Punkte für den Rater, 1 für die übrigen Ratenden. Falsch: Der Rater ist für den Rest der Runde raus. Damit ersetzt diese Regel die Abstimmung aus dem zweiten Treffen, und die Frage nach einem Zeitlimit (offener Punkt 11) entfällt.
+- **Gemeinsamer Vorschlag (Zusatzfunktion):** Ein Ratender kann ein ganzes Wort vorschlagen, dem alle anderen Ratenden zustimmen können. Ist es richtig, gewinnen alle normal (je 1 Punkt).
+- **Beitreten während eines laufenden Spiels:** in Version 1 nicht möglich, kommt später als Soll-Anforderung (offener Punkt 12).
+- **Grafik und Design:** Mara zeichnet die Avatare und übernimmt das Design insgesamt; Felix gibt Feedback.
+
+**Folgen**
+- Lastenheft angepasst: FA-35 geändert, FA-10 und FA-35a neu, Punktetabelle und offene Punkte 9–12 aktualisiert.
+- Noch offen: was passiert, wenn ein gemeinsamer Vorschlag falsch ist (offener Punkt 14).
 
 ---
 
