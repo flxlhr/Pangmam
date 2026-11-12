@@ -1,6 +1,6 @@
 # Lastenheft Multiplayer-Hangman (Pangmam)
 
-**Version 0.2** · Stand 12.11.2026 · Grundlage: Lastenheft v0.1 (05.11.2026) und zweites Teamtreffen
+**Version 0.2** · Stand 12.11.2026 · Grundlage: Lastenheft v0.1 (05.11.2026) und zweites Teamtreffen · im Team abgenommen am 12.11.2026 (Issue #7)
 
 > Was das Spiel können soll – nicht, wie es gebaut wird. Prioritäten: **Muss** (Version 1), **Soll** (wenn Zeit reicht), **Kann** (Idee für später).
 > Änderungen gegenüber v0.1 sind mit **(neu)** oder **(geändert)** markiert. Das Original-PDF v0.1 liegt nicht im Repo.
@@ -56,6 +56,7 @@ Alle Bildschirme liegen auf **einer** Browser-Seite; es wird nur die Ansicht gew
 | FA-07 | **(neu)** Ein Spiel braucht mindestens 2 Spieler. | Muss |
 | FA-08 | **(neu)** Verlässt der **Wortgeber** das Spiel, wird die Runde abgebrochen und die nächste beginnt mit einem neuen Wortgeber. Sind weniger als 2 Spieler übrig, geht es zurück in die Lobby. | Muss |
 | FA-09 | **(neu)** Wer die Verbindung verliert, kann über denselben Browser wieder in seine laufende Partie einsteigen. | Kann |
+| FA-10 | **(neu)** Spieler können einer Lobby auch während eines laufenden Spiels beitreten. In Version 1 geht das noch nicht, Beitreten ist nur vor dem Start möglich. | Soll |
 
 ### Rollen und Runden
 
@@ -85,7 +86,8 @@ Alle Bildschirme liegen auf **einer** Browser-Seite; es wird nur die Ansicht gew
 | FA-32 | Das System prüft den Buchstaben und trägt bei einem Treffer alle Vorkommen automatisch ein. | Muss |
 | FA-33 | Kommt der Buchstabe nicht vor, baut das System das nächste Teil der Hangman-Grafik auf. | Muss |
 | FA-34 | Gewählte Buchstaben werden gesperrt und markiert: zuerst weiß, Treffer grün, Fehlversuche grau. | Muss |
-| FA-35 | **(geändert)** **Ganzes Wort raten:** Ein Ratender drückt „Ich weiß es“ und tippt das Wort ein. Die anderen Ratenden stimmen ab (dafür/dagegen), das Ergebnis sehen alle. Im Gruppenmodus gilt die Mehrheit. **Richtig:** Runde gewonnen, der Rater bekommt 2 Punkte, die übrigen Ratenden 1. **Falsch:** Der Rater ist für den Rest der Runde raus (schaut zu, bekommt keinen Punkt); die anderen spielen normal weiter, der Hangman wächst dadurch nicht. | Muss |
+| FA-35 | **(geändert)** **Ganzes Wort raten:** Jeder Ratende kann jederzeit „Ich weiß es“ drücken und das Wort eintippen, auch wenn er gerade nicht an der Reihe ist. Es gibt keine Abstimmung. **Richtig:** Runde gewonnen, der Rater bekommt 2 Punkte, die übrigen Ratenden 1. **Falsch:** Der Rater ist für den Rest der Runde raus (schaut zu, bekommt keinen Punkt); die anderen spielen normal weiter, der Hangman wächst dadurch nicht. | Muss |
+| FA-35a | **(neu)** **Gemeinsamer Vorschlag:** Ein Ratender schlägt ein ganzes Wort vor, die anderen Ratenden können zustimmen. Stimmen alle zu, wird das Wort eingereicht. Ist es richtig, gewinnen alle Ratenden normal (je 1 Punkt). Was bei einem falschen Vorschlag passiert, ist noch offen (Punkt 14). | Kann |
 | FA-36 | Die Spieler verständigen sich im Spiel über einen Chat. | Soll |
 | FA-37 | Der Wortgeber kann Tipps geben. | Kann |
 | FA-38 | **(neu)** **Einzelmodus „jeder gegen jeden“:** Jeder deckt für sich auf und sammelt eigene Punkte. Kommt erst nach dem Gruppenmodus. | Kann |
@@ -131,6 +133,7 @@ Alle Bildschirme liegen auf **einer** Browser-Seite; es wird nur die Ansicht gew
 |---|---|---|
 | Wort durch Buchstaben erraten | je 1 | 0 |
 | Wort als Ganzes richtig geraten (FA-35) | Rater 2, übrige Ratende je 1 | 0 |
+| Gemeinsamer Vorschlag richtig (FA-35a) | je 1 | 0 |
 | Hangman vollständig | 0 | 1 |
 
 Wer nach einem falschen Ganzwort-Versuch raus ist, bekommt in dieser Runde keinen Punkt. Endstand = Summe über alle Runden.
@@ -193,11 +196,12 @@ Wer nach einem falschen Ganzwort-Versuch raus ist, bekommt in dieser Runde keine
 | 6 | Ganzes Wort falsch geraten | ✔ Rater ist raus, kein Hangman-Teil (FA-35) |
 | 7 | 11 oder 10 Teile | ✔ 10, Gestell vorgezeichnet |
 | 8 | Mindestspieler / Spieler geht | ✔ min. 2; FA-08 |
-| 9 | Zustimmung bei Buchstaben | ✔ Nur beim ganzen Wort (Abstimmung) |
-| 10 | Avatar-Stil | ✔ Vorgegebene Tiere; wer zeichnet, ist noch offen |
-| 11 | Abstimmung: Zeitlimit? Was, wenn jemand nicht abstimmt? | offen |
-| 12 | Darf man während eines laufenden Spiels beitreten? | offen (vorerst nein) |
+| 9 | Zustimmung bei Buchstaben | ✔ Nein; zugestimmt wird nur beim gemeinsamen Vorschlag (FA-35a) |
+| 10 | Avatar-Stil, wer zeichnet | ✔ Vorgegebene Tiere; Mara zeichnet Avatare und übernimmt das Design |
+| 11 | Abstimmung: Zeitlimit? Was, wenn jemand nicht abstimmt? | ✔ Entfällt, beim ganzen Wort gibt es keine Abstimmung (FA-35) |
+| 12 | Darf man während eines laufenden Spiels beitreten? | ✔ In Version 1 nein, später als Soll (FA-10) |
 | 13 | Unter welcher Domain läuft das Spiel? | offen (eigene Domain, siehe NF-06) |
+| 14 | Gemeinsamer Vorschlag falsch: Was passiert dann? | offen |
 
 ## 9. Glossar
 
