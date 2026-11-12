@@ -26,4 +26,4 @@ body:
     id: wo
     attributes:
       label: Wo?
-      placeholder: lokal im Godot-Editor / Browser (welcher?) auf flxlhr.com/pangmam
+      placeholder: lokal im Godot-Editor / Browser (welcher?) auf der Online-Version

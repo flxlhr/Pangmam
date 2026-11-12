@@ -67,7 +67,7 @@ func lobby_link() -> String:
 	return lobby_code
 
 
-## Lobby-Code aus der Adresse lesen (…/pangmam/?lobby=K7QX). Leer, wenn keiner da ist.
+## Lobby-Code aus der Adresse lesen (https://<domain>/?lobby=K7QX). Leer, wenn keiner da ist.
 func lobby_code_from_url() -> String:
 	if not OS.has_feature("web"):
 		return ""

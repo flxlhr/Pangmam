@@ -13,7 +13,7 @@ var base_url := LOCAL_BASE_URL
 
 func _ready() -> void:
 	if OS.has_feature("web"):
-		# Ordner der aktuellen Seite, z. B. https://flxlhr.com/pangmam/
+		# Ordner der aktuellen Seite, z. B. https://<domain>/
 		var page_dir: Variant = JavaScriptBridge.eval(
 			"window.location.origin + window.location.pathname.replace(/[^\\/]*$/, '')"
 		)

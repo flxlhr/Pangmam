@@ -5,7 +5,7 @@
 #   SFTP_HOST      z. B. access-5000000000.webspace-host.com
 #   SFTP_USER      SFTP-Benutzer aus dem IONOS-Kundenbereich
 #   SFTP_PASSWORD  zugehöriges Passwort
-#   SFTP_PATH      Zielordner auf dem Webspace, z. B. /pangmam
+#   SFTP_PATH      Ordner auf dem Webspace, auf den die Domain zeigt (bei IONOS unter Domains einstellbar), z. B. /pangmam
 # Ohne diese Secrets wird nur gebaut; die Dateien gibt es dann als Download im Workflow-Lauf.
 # Die config.php mit den Datenbank-Zugangsdaten legt man einmal per Hand auf dem Webspace ab.
 name: Deploy

@@ -5,7 +5,7 @@ Die PHP-API in `server/` ist die Schnittstelle zwischen Spiel und Datenbank.
 
 ## Grundsätzliches
 
-- Adresse: lokal `http://localhost:8000/api/`, online `https://flxlhr.com/pangmam/api/`
+- Adresse: lokal `http://localhost:8000/api/`, online `https://<domain>/api/` (eigene Domain, steht noch nicht fest)
 - Jede Anfrage: `POST /api/?action=<aktion>` mit JSON im Body.
 - Jede Antwort ist JSON mit `"ok": true` – oder `"ok": false` und `"error"`. Den Fehlertext kann das Spiel direkt anzeigen.
 - Nach dem Beitreten weist man sich mit `token` aus (geheim, nur im Speicher des Spiels).

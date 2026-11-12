@@ -48,7 +48,7 @@ Alle Bildschirme liegen auf **einer** Browser-Seite; es wird nur die Ansicht gew
 |---|---|---|
 | FA-01 | Spieler geben beim Start einen Namen ein (max. 16 Zeichen, in der Lobby eindeutig). | Muss |
 | FA-02 | **(geändert)** Spieler wählen einen von mindestens 8 vorgegebenen **Tier-Avataren** über ein Auswahlrad mit Pfeilen. Kein Baukasten. | Soll |
-| FA-03 | **(geändert)** Eine Lobby hat einen kurzen Code und einen **Einladungslink** (`…/pangmam/?lobby=CODE`). Wer den Link öffnet, landet direkt beim Beitreten. | Muss |
+| FA-03 | **(geändert)** Eine Lobby hat einen kurzen Code und einen **Einladungslink** (`https://<domain>/?lobby=CODE`). Wer den Link öffnet, landet direkt beim Beitreten. | Muss |
 | FA-03a | **(neu)** Liste offener Lobbys bzw. „Zufälliger Lobby beitreten“ auf dem Startbildschirm. (Ersetzt die frühere Muss-Anforderung, laufende Spiele anzuzeigen.) | Kann |
 | FA-04 | Ein Spieler erstellt eine Lobby, andere treten ihr bei. | Muss |
 | FA-05 | Eine Lobby fasst höchstens 8 Spieler; die Obergrenze lässt sich als Regel niedriger einstellen. | Muss |
@@ -155,7 +155,7 @@ Wer nach einem falschen Ganzwort-Versuch raus ist, bekommt in dieser Runde keine
 | NF-03 | Lobbys, Spielstände und Wortliste liegen auf dem Server. | Soll |
 | NF-04 | Die Bedienung ist ohne Erklärung verständlich. | Muss |
 | NF-05 | **(geändert)** Umsetzung: Godot 4.7 mit GDScript für das Spiel, PHP 8 mit MySQL für die Server-Schnittstelle. Details: [entscheidungen.md](entscheidungen.md). | Muss |
-| NF-06 | Das Spiel liegt als Unterseite auf Felix' bestehendem Webspace (IONOS); es entstehen keine zusätzlichen Kosten. | Muss |
+| NF-06 | **(geändert)** Das Spiel bekommt eine **eigene Webseite mit eigener Domain** in einem eigenen IONOS-Account, getrennt von Felix' privater Webseite. Der Tarif enthält PHP 8.1+, MySQL und SFTP. | Muss |
 | NF-07 | Der Quellcode ist Open Source (MIT) in einem öffentlichen GitHub-Repository. | Muss |
 | NF-08 | Der Code ist für alle Teammitglieder nachvollziehbar und erklärbar. | Soll |
 | NF-09 | **(neu)** Das gesuchte Wort wird nur an den Wortgeber übertragen; Ratende können es auch technisch nicht auslesen. | Muss |
@@ -196,6 +196,7 @@ Wer nach einem falschen Ganzwort-Versuch raus ist, bekommt in dieser Runde keine
 | 10 | Avatar-Stil | ✔ Vorgegebene Tiere; wer zeichnet, ist noch offen |
 | 11 | Abstimmung: Zeitlimit? Was, wenn jemand nicht abstimmt? | offen |
 | 12 | Darf man während eines laufenden Spiels beitreten? | offen (vorerst nein) |
+| 13 | Unter welcher Domain läuft das Spiel? | offen (eigene Domain, siehe NF-06) |
 
 ## 9. Glossar
 
