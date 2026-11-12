@@ -166,8 +166,9 @@ Wer nach einem falschen Ganzwort-Versuch raus ist, bekommt in dieser Runde keine
 | Thema | Vereinbarung |
 |---|---|
 | Code | Öffentliches Repo [flxlhr/Pangmam](https://github.com/flxlhr/Pangmam); Ablauf in [CONTRIBUTING.md](../CONTRIBUTING.md) |
-| Planung | [GitHub Project](https://github.com/users/flxlhr/projects/1) mit wöchentlichen Sprints und Meilensteinen M0–M4 |
-| Abstimmung | Discord mit Channels je Thema; wöchentliches Treffen in der Übung |
+| Planung | [GitHub Project](https://github.com/users/flxlhr/projects/1) mit Sprints von Donnerstag bis Mittwoch und Meilensteinen M0–M4 |
+| Abstimmung | Treffen jeden Donnerstag; dazwischen Discord mit Channels je Thema |
+| Rollen | Fünf Rollen, siehe [team.md](team.md) |
 | Vorgehen | Erst Prototyp, dann erweitern; Designstände werden in `docs/design/` versioniert |
 | KI | Darf helfen; alle müssen den Code verstehen und erklären können |
 

@@ -1,5 +1,13 @@
 # So arbeiten wir zusammen
 
+## Unser Rhythmus
+
+- **Jeden Donnerstag** treffen wir uns. Dort endet der alte Sprint und der neue beginnt.
+- **Ein Sprint geht von Donnerstag bis Mittwoch.** Im Treffen schauen wir zurück (was ist fertig, was hängt?) und verteilen die Issues für die nächste Woche.
+- Dazwischen gibt es keine festen Zeiten: Jede Person arbeitet, wann es passt. Abgestimmt wird auf Discord und in den Issues.
+- Meilensteine enden immer an einem Donnerstag. Die Abgabe ist am 28.01.2027.
+- Wer was verantwortet, steht in [`docs/team.md`](docs/team.md).
+
 ## Der Ablauf für jede Aufgabe
 
 1. **Issue aussuchen** auf dem [Board](https://github.com/users/flxlhr/projects/1) (Spalte *Bereit*). Dich als *Assignee* eintragen und die Karte auf *In Arbeit* schieben.
