@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Lastenheft
+    url: https://github.com/flxlhr/Pangmam/blob/main/docs/lastenheft.md
+    about: Was das Spiel können soll

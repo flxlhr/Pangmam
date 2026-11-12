@@ -1,0 +1,29 @@
+name: Fehler melden
+description: Etwas funktioniert nicht wie erwartet
+labels: ["typ: bug"]
+projects: ["flxlhr/1"]
+body:
+  - type: textarea
+    id: was
+    attributes:
+      label: Was ist passiert?
+    validations:
+      required: true
+  - type: textarea
+    id: schritte
+    attributes:
+      label: So kann man es nachstellen
+      value: |
+        1.
+        2.
+    validations:
+      required: true
+  - type: textarea
+    id: erwartet
+    attributes:
+      label: Was hätte passieren sollen?
+  - type: input
+    id: wo
+    attributes:
+      label: Wo?
+      placeholder: lokal im Godot-Editor / Browser (welcher?) auf flxlhr.com/pangmam

@@ -1,0 +1,33 @@
+name: Aufgabe / Feature
+description: Etwas, das gebaut, gestaltet oder erledigt werden soll
+labels: []
+projects: ["flxlhr/1"]
+body:
+  - type: textarea
+    id: ziel
+    attributes:
+      label: Was soll passieren?
+      description: Aus Sicht der Spieler oder des Teams.
+      placeholder: Ratende sehen eine Bildschirm-Tastatur mit A–Z und Ä, Ö, Ü, ß …
+    validations:
+      required: true
+  - type: textarea
+    id: fertig
+    attributes:
+      label: Fertig, wenn …
+      description: Woran erkennt man, dass die Aufgabe erledigt ist?
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+  - type: input
+    id: anforderung
+    attributes:
+      label: Anforderung im Lastenheft
+      placeholder: FA-30, FA-34
+  - type: textarea
+    id: hinweise
+    attributes:
+      label: Hinweise
+      description: Links, Skizzen, betroffene Dateien, offene Fragen.

@@ -1,0 +1,15 @@
+# Wird beim Deployment als .htaccess in den Spielordner auf dem Webspace kopiert
+# (dort liegen index.html/.wasm/.pck aus dem Godot-Web-Export sowie api/, src/, data/).
+
+AddType application/wasm .wasm
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/wasm application/javascript text/html
+</IfModule>
+
+<Files "config.php">
+    Require all denied
+</Files>
+<FilesMatch "\.(sql|md)$">
+    Require all denied
+</FilesMatch>

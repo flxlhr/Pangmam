@@ -1,0 +1,75 @@
+# Baut die Web-Version und lädt sie zusammen mit der API auf den Webspace.
+# Läuft bei jedem veröffentlichten Release oder per Hand (Actions → Deploy → Run workflow).
+#
+# Einmalig nötig – unter Settings → Secrets and variables → Actions:
+#   SFTP_HOST      z. B. access-5000000000.webspace-host.com
+#   SFTP_USER      SFTP-Benutzer aus dem IONOS-Kundenbereich
+#   SFTP_PASSWORD  zugehöriges Passwort
+#   SFTP_PATH      Zielordner auf dem Webspace, z. B. /pangmam
+# Ohne diese Secrets wird nur gebaut; die Dateien gibt es dann als Download im Workflow-Lauf.
+# Die config.php mit den Datenbank-Zugangsdaten legt man einmal per Hand auf dem Webspace ab.
+name: Deploy
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+concurrency: deploy
+
+env:
+  GODOT_VERSION: "4.7.2"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Godot und Web-Exportvorlagen laden
+        run: |
+          base="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable"
+          wget -q "$base/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q Godot_*.zip && mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" godot
+          wget -q "$base/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          dir="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          mkdir -p "$dir"
+          unzip -q -j "Godot_v${GODOT_VERSION}-stable_export_templates.tpz" "templates/web_*" "templates/version.txt" -d "$dir"
+          rm "Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+
+      - name: Web-Version exportieren
+        run: |
+          mkdir -p build/web
+          ./godot --headless --editor --quit --path game
+          ./godot --headless --path game --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
+          test -f build/web/index.html
+
+      - name: API-Dateien dazulegen
+        run: |
+          cp -r server/api server/src build/web/
+          mkdir -p build/web/data
+          cp server/data/.htaccess build/web/data/
+          cp server/web.htaccess build/web/.htaccess
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pangmam-web
+          path: build/web
+
+      - name: Auf den Webspace hochladen
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_PATH: ${{ secrets.SFTP_PATH }}
+        run: |
+          if [ -z "$SFTP_HOST" ]; then
+            echo "::warning::Keine SFTP-Secrets hinterlegt – nur gebaut, nicht hochgeladen."
+            exit 0
+          fi
+          sudo apt-get install -y -qq lftp
+          # Ohne --delete: config.php und die Datenbank auf dem Webspace bleiben erhalten.
+          lftp -u "$SFTP_USER","$SFTP_PASSWORD" "sftp://$SFTP_HOST" -e "
+            set sftp:auto-confirm yes;
+            mirror --reverse --verbose build/web $SFTP_PATH;
+            bye"

@@ -1,0 +1,19 @@
+# Godot: Cache und importierte Dateien (werden automatisch neu erzeugt)
+.godot/
+*.translation
+# Exportierte Builds
+build/
+*.tmp
+
+# Server: echte Zugangsdaten und lokale Datenbank
+server/config.php
+server/data/*
+!server/data/.gitkeep
+!server/data/.htaccess
+
+# Betriebssystem und Editoren
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

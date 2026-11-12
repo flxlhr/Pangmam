@@ -1,0 +1,52 @@
+# Automatische Prüfungen bei jedem Pull Request und jedem Push auf main.
+# Ein Pull Request darf erst gemergt werden, wenn alles grün ist.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+env:
+  GODOT_VERSION: "4.7.2"
+
+jobs:
+  server:
+    name: Server (PHP)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+      - name: Syntax prüfen
+        run: find server -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Tests
+        run: php server/tests/run.php
+
+  game:
+    name: Spiel (Godot)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: GDScript-Werkzeuge installieren
+        run: pip install "gdtoolkit==4.5.0"
+      - name: Stil prüfen (gdlint)
+        run: gdlint game
+      - name: Formatierung prüfen (gdformat)
+        run: gdformat --check game
+      - name: Godot laden
+        run: |
+          wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q Godot_*.zip
+          mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" godot
+      - name: Projekt importieren und Skripte prüfen
+        run: |
+          ./godot --headless --editor --quit --path game 2>&1 | tee godot.log
+          if grep -E "SCRIPT ERROR|Parse Error|Failed to load script|Failed loading resource" godot.log; then
+            echo "::error::Godot meldet Fehler beim Laden des Projekts (siehe oben)."
+            exit 1
+          fi

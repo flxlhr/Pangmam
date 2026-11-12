@@ -1,0 +1,30 @@
+; Engine configuration file.
+; Wird von Godot verwaltet – am besten über Projekt > Projekteinstellungen ändern.
+
+config_version=5
+
+[application]
+
+config/name="Pangmam"
+config/description="Multiplayer-Hangman im Browser"
+run/main_scene="res://screens/start/start_screen.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Api="*res://autoload/api.gd"
+Session="*res://autoload/session.gd"
+Screens="*res://autoload/screens.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
