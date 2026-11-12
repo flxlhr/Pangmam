@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS players (
     name        VARCHAR(32) NOT NULL,
     avatar      INTEGER     NOT NULL DEFAULT 0,
     score       INTEGER     NOT NULL DEFAULT 0,
+    join_order  INTEGER     NOT NULL,
     joined_at   INTEGER     NOT NULL,
     last_seen   INTEGER     NOT NULL
 );

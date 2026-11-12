@@ -34,7 +34,7 @@ final class LobbyService
     {
         $name = $this->checkName($name);
         $code = $this->newLobbyCode();
-        $player = $this->newPlayer($code, $name, $this->checkAvatar($avatar));
+        $player = $this->newPlayer($code, $name, $this->checkAvatar($avatar), 1);
 
         $this->db->beginTransaction();
         $this->db->prepare(
@@ -67,7 +67,8 @@ final class LobbyService
                     throw new ApiError('Der Name ist in dieser Lobby schon vergeben.', 409);
                 }
             }
-            $player = $this->newPlayer($code, $name, $this->checkAvatar($avatar));
+            $joinOrder = $players === [] ? 1 : max(array_column($players, 'join_order')) + 1;
+            $player = $this->newPlayer($code, $name, $this->checkAvatar($avatar), (int) $joinOrder);
             $this->insertPlayer($player);
             $this->bumpVersion($code);
             $this->db->commit();
@@ -186,7 +187,8 @@ final class LobbyService
         return $code;
     }
 
-    private function newPlayer(string $code, string $name, int $avatar): array
+    /** $joinOrder: 1 für den Ersten in der Lobby, 2 für den Zweiten usw. – bestimmt die Reihenfolge. */
+    private function newPlayer(string $code, string $name, int $avatar, int $joinOrder): array
     {
         return [
             'id' => bin2hex(random_bytes(8)),
@@ -194,6 +196,7 @@ final class LobbyService
             'lobby_code' => $code,
             'name' => $name,
             'avatar' => $avatar,
+            'join_order' => $joinOrder,
         ];
     }
 
@@ -201,9 +204,9 @@ final class LobbyService
     {
         $now = time();
         $this->db->prepare(
-            'INSERT INTO players (id, token, lobby_code, name, avatar, score, joined_at, last_seen)
-             VALUES (?, ?, ?, ?, ?, 0, ?, ?)'
-        )->execute([$p['id'], $p['token'], $p['lobby_code'], $p['name'], $p['avatar'], $now, $now]);
+            'INSERT INTO players (id, token, lobby_code, name, avatar, score, join_order, joined_at, last_seen)
+             VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?)'
+        )->execute([$p['id'], $p['token'], $p['lobby_code'], $p['name'], $p['avatar'], $p['join_order'], $now, $now]);
     }
 
     private function findLobby(string $code): ?array
@@ -216,7 +219,7 @@ final class LobbyService
     /** Spieler einer Lobby in Beitrittsreihenfolge. */
     private function playersOf(string $code): array
     {
-        $stmt = $this->db->prepare('SELECT * FROM players WHERE lobby_code = ? ORDER BY joined_at, id');
+        $stmt = $this->db->prepare('SELECT * FROM players WHERE lobby_code = ? ORDER BY join_order');
         $stmt->execute([$code]);
         return $stmt->fetchAll();
     }
