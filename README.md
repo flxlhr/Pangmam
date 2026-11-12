@@ -26,7 +26,8 @@ Browser (Godot-Web-Export)  ──fragt jede Sekunde──▶  /api/  (PHP)  ─
 |---|---|---|
 | **Godot 4.7** – Standard-Version, **nicht** „.NET“ | Spiel bauen | [godotengine.org/download](https://godotengine.org/download) |
 | **PHP 8.1+** | API lokal starten | macOS: `brew install php` · Windows: [windows.php.net](https://windows.php.net/download/) (ZIP entpacken, Ordner zum PATH hinzufügen) |
-| **Git** | Versionskontrolle | [git-scm.com](https://git-scm.com) oder GitHub Desktop |
+| **GitKraken** (empfohlen) | Git mit Oberfläche: Commits, Branches, Pull Requests | [gitkraken.com/download](https://www.gitkraken.com/download), mit GitHub anmelden. Kostenlos, weil unser Repo öffentlich ist |
+| **Git** (optional) | Versionskontrolle im Terminal | [git-scm.com](https://git-scm.com) |
 
 ### 2. Projekt holen
 

@@ -1,5 +1,6 @@
 # Meeting-Notizen
 
+Wir treffen uns jeden Donnerstag. Das Protokoll schreibt jede Woche eine andere Person.
 Eine Datei pro Treffen: `JJJJ-MM-TT.md`, z. B. `2026-11-19.md`.
 
 Vorlage:
