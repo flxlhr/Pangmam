@@ -13,8 +13,7 @@ Erste Übung für den Git-Ablauf (Issue #2): Trag dich über einen eigenen Branc
 | Git- & Prozess-Coach | Felix |                                          |
 | Spiel (Godot & Oberfläche) | Brian | [@Cherryco75](https://github.com/Cherryco75) |
 | Server (PHP, API & Betrieb) |       |                                          |
-| Design (Grafik & UX) |       |                                          |
-
+| Design (Grafik & UX) | Mara | [@macgulden](https://github.com/macgulden) |
 
 ## Die Rollen
 
