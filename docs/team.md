@@ -7,13 +7,13 @@ Rollen sind Verantwortung, keine Grenzen. Alle programmieren, alle reviewen, all
 
 Erste Übung für den Git-Ablauf (Issue #2): Trag dich über einen eigenen Branch und Pull Request in deiner Zeile ein.
 
-| Rolle | Name | GitHub |
-|---|---|---|
+| Rolle | Name | GitHub                     |
+|---|------|----------------------------|
 | Projektleitung & Product Owner | Felix | [@flxlhr](https://github.com/flxlhr) |
-| Git- & Prozess-Coach | Felix | |
-| Spiel (Godot & Oberfläche) | | |
-| Server (PHP, API & Betrieb) | | |
-| Design (Grafik & UX) | | asfaf |
+| Git- & Prozess-Coach |      |                            |
+| Spiel (Godot & Oberfläche) |      |                            |
+| Server (PHP, API & Betrieb) |      |                            |
+| Design (Grafik & UX) | Mara | [@macgulden](https://github.com/macgulden) |
 
 ## Die Rollen
 
