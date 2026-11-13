@@ -15,6 +15,7 @@ Erste Übung für den Git-Ablauf (Issue #2): Trag dich über einen eigenen Branc
 | Server (PHP, API & Betrieb) |       |                                          |
 | Design (Grafik & UX) |       |                                          |
 
+
 ## Die Rollen
 
 ### Projektleitung & Product Owner
