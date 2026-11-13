@@ -1,8 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c5sedhtr773od"]
 
-[ext_resource type="Script" path="res://screens/start/start_screen.gd" id="1_start"]
+[ext_resource type="Script" uid="uid://cmp3t72xkdvgq" path="res://screens/start/start_screen.gd" id="1_start"]
 
-[node name="StartScreen" type="Control"]
+[node name="StartScreen" type="Control" unique_id=5702059]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_start")
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=1823055046]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,65 +19,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Box" type="VBoxContainer" parent="Center"]
+[node name="Box" type="VBoxContainer" parent="Center" unique_id=827684715]
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 theme_override_constants/separation = 14
 
-[node name="Title" type="Label" parent="Center/Box"]
+[node name="Title" type="Label" parent="Center/Box" unique_id=895777589]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.73479193, 0.5714641, 0.25006196, 1)
 theme_override_font_sizes/font_size = 56
-text = "PANGMAM"
+text = "PANGOLINMAN"
 horizontal_alignment = 1
 
-[node name="NameEdit" type="LineEdit" parent="Center/Box"]
+[node name="NameEdit" type="LineEdit" parent="Center/Box" unique_id=522857036]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Dein Name"
 max_length = 16
 
-[node name="AvatarRow" type="HBoxContainer" parent="Center/Box"]
+[node name="AvatarRow" type="HBoxContainer" parent="Center/Box" unique_id=1019114844]
 layout_mode = 2
 alignment = 1
 
-[node name="PrevAvatar" type="Button" parent="Center/Box/AvatarRow"]
+[node name="PrevAvatar" type="Button" parent="Center/Box/AvatarRow" unique_id=1329302404]
 unique_name_in_owner = true
 layout_mode = 2
 text = "◀"
 
-[node name="AvatarLabel" type="Label" parent="Center/Box/AvatarRow"]
+[node name="AvatarLabel" type="Label" parent="Center/Box/AvatarRow" unique_id=832647867]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 text = "Avatar 1"
 horizontal_alignment = 1
 
-[node name="NextAvatar" type="Button" parent="Center/Box/AvatarRow"]
+[node name="NextAvatar" type="Button" parent="Center/Box/AvatarRow" unique_id=1079018065]
 unique_name_in_owner = true
 layout_mode = 2
 text = "▶"
 
-[node name="CreateButton" type="Button" parent="Center/Box"]
+[node name="CreateButton" type="Button" parent="Center/Box" unique_id=23079249]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Neue Lobby erstellen"
 
-[node name="JoinRow" type="HBoxContainer" parent="Center/Box"]
+[node name="JoinRow" type="HBoxContainer" parent="Center/Box" unique_id=284967684]
 layout_mode = 2
 
-[node name="CodeEdit" type="LineEdit" parent="Center/Box/JoinRow"]
+[node name="CodeEdit" type="LineEdit" parent="Center/Box/JoinRow" unique_id=1746648164]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Lobby-Code"
 max_length = 8
 
-[node name="JoinButton" type="Button" parent="Center/Box/JoinRow"]
+[node name="JoinButton" type="Button" parent="Center/Box/JoinRow" unique_id=129807700]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Beitreten"
 
-[node name="StatusLabel" type="Label" parent="Center/Box"]
+[node name="StatusLabel" type="Label" parent="Center/Box" unique_id=1690918387]
 unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1
