@@ -13,7 +13,7 @@ Erste Übung für den Git-Ablauf (Issue #2): Trag dich über einen eigenen Branc
 | Git- & Prozess-Coach | Felix | |
 | Spiel (Godot & Oberfläche) | | |
 | Server (PHP, API & Betrieb) | | |
-| Design (Grafik & UX) | | |
+| Design (Grafik & UX) | | asfaf |
 
 ## Die Rollen
 
