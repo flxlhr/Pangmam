@@ -44,6 +44,8 @@
 
 ## Code-Stil
 
+Neu bei PHP oder GDScript? Die Einführungen [`docs/php-grundlagen.md`](docs/php-grundlagen.md) und [`docs/gdscript-grundlagen.md`](docs/gdscript-grundlagen.md) erklären Syntax, Eigenheiten und unsere Regeln mit Beispielen aus dem Projekt.
+
 - **Namen im Code auf Englisch** (`guess_letter`, `LobbyService`), **Kommentare und Texte im Spiel auf Deutsch**.
 - **GDScript:** [offizieller Style Guide](https://docs.godotengine.org/de/4.x/tutorials/scripting/gdscript/gdscript_styleguide.html) – `snake_case`, Tabs, Typen angeben (`var count: int`). Die CI prüft mit `gdlint`/`gdformat`; lokal: `pip install "gdtoolkit==4.5.0"`, dann vor dem Commit `gdformat game/` und `gdlint game/`.
 - **PHP:** 4 Leerzeichen, `declare(strict_types=1);`, eine Klasse pro Datei in `server/src/`.
