@@ -14,6 +14,7 @@ Erste Übung für den Git-Ablauf (Issue #2): Trag dich über einen eigenen Branc
 | Spiel (Godot & Oberfläche) | Brian | [@Cherryco75](https://github.com/Cherryco75) |
 | Server (PHP, API & Betrieb) |       |                                          |
 | Design (Grafik & UX) | Mara | [@macgulden](https://github.com/macgulden) |
+| Mentalsupport | Cecile | 
 
 ## Die Rollen
 
