@@ -1,15 +1,19 @@
 # Wird beim Deployment als .htaccess in den Spielordner auf dem Webspace kopiert
 # (dort liegen index.html/.wasm/.pck aus dem Godot-Web-Export sowie api/, src/, data/).
 
+# .wasm-Dateien mit dem richtigen Typ ausliefern, sonst startet das Godot-Spiel im Browser nicht.
 AddType application/wasm .wasm
 
+# Dateien komprimiert übertragen (falls der Server das kann) – das Spiel lädt dann schneller.
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE application/wasm application/javascript text/html
 </IfModule>
 
+# config.php enthält das Datenbank-Passwort und darf nie im Browser abrufbar sein.
 <Files "config.php">
     Require all denied
 </Files>
+# Auch SQL- und Markdown-Dateien sperren (verraten sonst den Aufbau der Datenbank bzw. Doku-Interna).
 <FilesMatch "\.(sql|md)$">
     Require all denied
 </FilesMatch>
