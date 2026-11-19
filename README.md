@@ -25,9 +25,63 @@ Browser (Godot-Web-Export)  ──fragt jede Sekunde──▶  /api/  (PHP)  ─
 | Was | Wofür | Wie |
 |---|---|---|
 | **Godot 4.7** – Standard-Version, **nicht** „.NET“ | Spiel bauen | [godotengine.org/download](https://godotengine.org/download) |
-| **PHP 8.1+** | API lokal starten | macOS: `brew install php` · Windows: [windows.php.net](https://windows.php.net/download/) (ZIP entpacken, Ordner zum PATH hinzufügen) |
+| **PHP 8.1+** | API lokal starten | Siehe [PHP installieren](#php-installieren) direkt unter der Tabelle |
 | **GitKraken** (empfohlen) | Git mit Oberfläche: Commits, Branches, Pull Requests | [gitkraken.com/download](https://www.gitkraken.com/download), mit GitHub anmelden. Kostenlos, weil unser Repo öffentlich ist |
 | **Git** (optional) | Versionskontrolle im Terminal | [git-scm.com](https://git-scm.com) |
+
+#### PHP installieren
+
+Die API braucht PHP **8.1 oder neuer** mit den Erweiterungen **pdo_sqlite** (lokale Datenbank) und **mbstring** (Umlaute). XAMPP oder Apache braucht ihr nicht.
+
+<details>
+<summary><b>macOS</b></summary>
+
+1. Falls noch nicht vorhanden, [Homebrew](https://brew.sh) installieren.
+2. Im Terminal:
+   ```bash
+   brew install php
+   ```
+   pdo_sqlite und mbstring sind schon dabei.
+
+</details>
+
+<details>
+<summary><b>Windows</b></summary>
+
+1. Auf [windows.php.net/download](https://windows.php.net/download/) die neueste Version **„VS16 x64 Thread Safe“** als ZIP laden und nach `C:\php` entpacken.
+   *Alternative:* `winget install PHP.PHP.8.3` im Terminal. Schritt 2 und 3 braucht ihr trotzdem; PHP liegt dann unter `%LOCALAPPDATA%\Microsoft\WinGet\Packages\…`, den Ordner zeigt `where php`.
+2. Im PHP-Ordner die Datei `php.ini-development` kopieren und die Kopie in **`php.ini`** umbenennen.
+3. `php.ini` mit einem Texteditor öffnen und bei diesen Zeilen das `;` am Anfang löschen:
+   ```ini
+   extension_dir = "ext"
+   extension=mbstring
+   extension=pdo_sqlite
+   ```
+4. Den PHP-Ordner zum **Path** hinzufügen: Startmenü → „Umgebungsvariablen bearbeiten“ → *Path* → *Bearbeiten* → *Neu* → `C:\php`. (Entfällt bei winget.)
+5. **Neues** Terminal öffnen, damit der Path gilt.
+
+</details>
+
+<details>
+<summary><b>Linux (Ubuntu/Debian)</b></summary>
+
+```bash
+sudo apt install php-cli php-sqlite3 php-mbstring
+```
+
+</details>
+
+**Prüfen** (in einem neuen Terminal):
+
+```bash
+php -v
+```
+
+```bash
+php -m
+```
+
+`php -v` muss 8.1 oder höher zeigen, in der Liste von `php -m` müssen `mbstring` und `pdo_sqlite` stehen.
 
 ### 2. Projekt holen
 
@@ -43,6 +97,16 @@ php -S localhost:8000 -t server
 ```
 
 Test: <http://localhost:8000/api/?action=ping> zeigt `{"ok":true,...}`. Die Datenbank (SQLite) legt sich beim ersten Aufruf selbst an.
+
+| Problem | Ursache und Lösung |
+|---|---|
+| `php: command not found` / „Der Befehl php ist falsch geschrieben…“ | PHP ist nicht im Path, oder das Terminal war schon vor der Installation offen. Terminal neu öffnen, sonst Path prüfen. |
+| `could not find driver` | pdo_sqlite ist nicht aktiviert. In der `php.ini` das `;` vor `extension=pdo_sqlite` löschen (siehe Windows-Schritt 3). |
+| `Call to undefined function mb_…` | mbstring ist nicht aktiviert, gleiche Lösung mit `extension=mbstring`. |
+| 404 / „Not Found“ statt `ok` | Server im falschen Ordner gestartet oder `-t server` vergessen. Der Befehl muss im Hauptordner `Pangmam` laufen. |
+| `Address already in use` | Port 8000 ist belegt, meist von einem zweiten `php -S`. Das andere Terminal schließen; das Spiel erwartet die API fest auf Port 8000. |
+
+Fehler der API stehen immer in dem Terminal, in dem `php -S` läuft.
 
 ### 4. Spiel starten
 
