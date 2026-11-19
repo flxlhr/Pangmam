@@ -12,7 +12,7 @@ Erste Übung für den Git-Ablauf (Issue #2): Trag dich über einen eigenen Branc
 | Projektleitung & Product Owner | Felix | [@flxlhr](https://github.com/flxlhr)     |
 | Git- & Prozess-Coach | Felix |                                          |
 | Spiel (Godot & Oberfläche) | Brian | [@Cherryco75](https://github.com/Cherryco75) |
-| Server (PHP, API & Betrieb) |       |                                          |
+| Server (PHP, API & Betrieb) | Victor | [@hofmann987](https://github.com/hofmann987) |
 | Design (Grafik & UX) | Mara | [@macgulden](https://github.com/macgulden) |
 
 ## Die Rollen
